@@ -1,0 +1,43 @@
+{
+	"name": "neweb",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "pnpm -r --filter='./packages/**' run test",
+		"build": "pnpm -r --filter='./packages/**' run build",
+		"prettier:fix": "npx prettier ./* ./**/* --write --cache --cache-strategy content --ignore-unknown"
+	},
+	"keywords": [
+		"neweb",
+		"components",
+		"react",
+		"nextjs",
+		"svelte"
+	],
+	"author": "Lorenzo Bloedow",
+	"license": "MIT",
+	"packageManager": "pnpm@8.6.12",
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^6.4.1",
+		"@typescript-eslint/parser": "^6.4.1",
+		"browserslist": "^4.21.10",
+		"eslint": "^8.47.0",
+		"eslint-plugin-compat": "^4.1.4",
+		"prettier": "^3.0.2",
+		"prettier-plugin-jsdoc": "^1.0.1",
+		"prettier-plugin-organize-imports": "^3.2.3",
+		"prettier-plugin-tailwindcss": "^0.5.3",
+		"typescript": "^5.1.6",
+		"webpack": "^5.88.2"
+	},
+	"browserslist": [
+		"chrome >= 64",
+		"edge >= 79",
+		"firefox >= 67",
+		"opera >= 51",
+		"safari >= 12",
+		"iOS >= 12",
+		"ChromeAndroid >= 103"
+	]
+}
