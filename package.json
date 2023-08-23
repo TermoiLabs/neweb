@@ -19,6 +19,7 @@
 	"license": "MIT",
 	"packageManager": "pnpm@8.6.12",
 	"devDependencies": {
+		"@babel/preset-env": "^7.22.10",
 		"@typescript-eslint/eslint-plugin": "^6.4.1",
 		"@typescript-eslint/parser": "^6.4.1",
 		"browserslist": "^4.21.10",
