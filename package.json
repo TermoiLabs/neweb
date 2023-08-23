@@ -40,5 +40,8 @@
 		"safari >= 12",
 		"iOS >= 12",
 		"ChromeAndroid >= 103"
-	]
+	],
+	"dependencies": {
+		"tslib": "^2.6.2"
+	}
 }
