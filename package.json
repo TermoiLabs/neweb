@@ -6,7 +6,10 @@
 	"scripts": {
 		"test": "pnpm -r --filter='./packages/**' run test",
 		"build": "pnpm -r --filter='./packages/**' run build",
-		"prettier:fix": "npx prettier ./* ./**/* --write --cache --cache-strategy content --ignore-unknown"
+		"prettier:fix": "npx prettier ./* ./**/* --write --cache --cache-strategy content --ignore-unknown",
+		"find-version-mismatch": "syncpack list-mismatches",
+		"find-version-mismatch:ci": "syncpack lint",
+		"prepare": "husky install"
 	},
 	"keywords": [
 		"neweb",
@@ -25,10 +28,12 @@
 		"browserslist": "^4.21.10",
 		"eslint": "^8.47.0",
 		"eslint-plugin-compat": "^4.1.4",
+		"husky": "^8.0.3",
 		"prettier": "^3.0.2",
 		"prettier-plugin-jsdoc": "^1.0.1",
 		"prettier-plugin-organize-imports": "^3.2.3",
 		"prettier-plugin-tailwindcss": "^0.5.3",
+		"syncpack": "^11.2.1",
 		"typescript": "^5.1.6",
 		"webpack": "^5.88.2"
 	},
