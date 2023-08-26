@@ -1,0 +1,13 @@
+name: Code Health Analysis
+run-name: Perform various checks to ensure code health
+on: [pull_request]
+jobs:
+  No-Global-Runtime-Dependency:
+    name: Disallow global runtime dependencies to improve readiblity and encapsulation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Run script to detect global dependencies
+        run: node scripts/detectGlobalRuntimeDependency.js

@@ -40,9 +40,5 @@
 		"safari >= 12",
 		"iOS >= 12",
 		"ChromeAndroid >= 103"
-	],
-	"dependencies": {
-		"modify-source-webpack-plugin": "^4.1.0",
-		"tslib": "^2.6.2"
-	}
+	]
 }
