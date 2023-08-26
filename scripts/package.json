@@ -1,0 +1,11 @@
+{
+	"name": "neweb-local-scripts",
+	"version": "0.1.0",
+	"private": true,
+	"author": "Lorenzo Bloedow",
+	"license": "MIT",
+	"dependencies": {
+		"tslib": "^2.6.2",
+		"neweb-local-utils": "workspace:^0.1.0"
+	}
+}

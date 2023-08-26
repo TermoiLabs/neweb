@@ -9,5 +9,8 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
+      - name: Install dependencies
+        run: npm i -g ts-node && npm i -g pnpm && pnpm i
+
       - name: Run script to detect global dependencies
-        run: node scripts/detectGlobalRuntimeDependency.js
+        run: ts-node scripts/src/detectGlobalRuntimeDependency.ts
