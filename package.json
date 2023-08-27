@@ -6,6 +6,7 @@
 	"scripts": {
 		"test": "pnpm -r --filter='./packages/**' run test",
 		"build": "pnpm -r --filter='./packages/**' run build",
+		"dev": "cross-env NODE_OPTIONS=--max-old-space-size=8192 pnpm -r --parallel --filter='./packages/**' run dev",
 		"prettier:fix": "npx prettier ./* ./**/* --write --cache --cache-strategy content --ignore-unknown",
 		"find-version-mismatch": "syncpack list-mismatches",
 		"find-version-mismatch:ci": "syncpack lint",
@@ -27,6 +28,7 @@
 		"@typescript-eslint/eslint-plugin": "^6.4.1",
 		"@typescript-eslint/parser": "^6.4.1",
 		"browserslist": "^4.21.10",
+		"cross-env": "^7.0.3",
 		"eslint": "^8.47.0",
 		"eslint-plugin-compat": "^4.1.4",
 		"husky": "^8.0.3",
