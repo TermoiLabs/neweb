@@ -1,7 +1,5 @@
 import { readFileSync } from "node:fs";
 
-
-
 (() => {
 	const file = readFileSync("package.json", "utf-8");
 
