@@ -3,7 +3,7 @@
 		"target": "ES2022",
 		"moduleResolution": "Bundler",
 		"allowJs": true,
-		"checkJs": true,
+		"checkJs": false,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
