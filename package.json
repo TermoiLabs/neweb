@@ -40,6 +40,9 @@
 		"typescript": "^5.1.6",
 		"webpack": "^5.88.2"
 	},
+	"peerDependencies": {
+		"ts-node": "^10.9.1"
+	},
 	"browserslist": [
 		"chrome >= 64",
 		"edge >= 79",
