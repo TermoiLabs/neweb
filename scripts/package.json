@@ -4,8 +4,12 @@
 	"private": true,
 	"author": "Lorenzo Bloedow",
 	"license": "MIT",
+	"type": "module",
 	"dependencies": {
-		"tslib": "^2.6.2",
-		"neweb-local-utils": "workspace:^0.1.0"
+		"neweb-local-utils": "workspace:^0.1.0",
+		"tslib": "^2.6.2"
+	},
+	"devDependencies": {
+		"type-fest": "^4.3.1"
 	}
 }

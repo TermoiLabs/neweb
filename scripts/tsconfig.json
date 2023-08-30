@@ -4,5 +4,11 @@
 		"declaration": false,
 		"declarationMap": false,
 		"sourceMap": false
+	},
+	"ts-node": {
+		"esm": true,
+		"compilerOptions": {
+			"module": "ES2022"
+		}
 	}
 }
