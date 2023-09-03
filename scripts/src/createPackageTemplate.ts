@@ -16,7 +16,7 @@ const defaultPackageJson: PackageJson = {
 	main: "dist/index.js",
 	types: "dist/types/src/index.d.ts",
 	type: "module",
-	files: ["dist"],
+	files: ["dist", "package.json"],
 	scripts: {
 		build: "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
 		postbuild: "rimraf dist/types/rollup.config.d.ts && rimraf dist/types/rollup.config.d.ts.map",
