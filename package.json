@@ -4,8 +4,8 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"test": "pnpm -r --filter='./packages/**' run test",
-		"build": "pnpm -r --filter='./packages/**' run build",
+		"test": "pnpm -r --filter=\"./packages/**\" run test",
+		"build": "pnpm -r --filter=\"./packages/**\" run build",
 		"dev": "cross-env NODE_OPTIONS=--max-old-space-size=8192 pnpm -r --parallel --filter='./packages/**' run dev",
 		"prettier:fix": "npx prettier ./* ./**/* --write --cache --cache-strategy content --ignore-unknown",
 		"prettier:ci:check": "npx prettier ./* ./**/* --list-different --cache --cache-strategy content --ignore-unknown",
