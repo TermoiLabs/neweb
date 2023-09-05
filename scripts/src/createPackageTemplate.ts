@@ -25,7 +25,7 @@ const defaultPackageJson: PackageJson = {
 	devDependencies: {
 		rimraf: "^5.0.1",
 		rollup: "^3.28.1",
-		"neweb-local-utils": "workspace:^0.1.0",
+		"dev-utils": "workspace:^0.1.0",
 	},
 	dependencies: {
 		tslib: "^2.6.2",
@@ -41,7 +41,7 @@ const defaultTsConfig: TsConfigJson = {
 };
 
 const defaultRollupConfig = `
-import { mergeDefaultRollupConfig } from "neweb-local-utils";
+import { mergeDefaultRollupConfig } from "dev-utils";
 
 export default mergeDefaultRollupConfig({
 	newConfig: { plugins: { typescript: { tsconfig: "./tsconfig.json" } } },

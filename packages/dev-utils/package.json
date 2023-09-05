@@ -1,0 +1,34 @@
+{
+	"name": "dev-utils",
+	"description": "utilities that won't be bundled in production code",
+	"version": "0.1.0",
+	"private": true,
+	"author": "Lorenzo Bloedow",
+	"license": "MIT",
+	"keywords": [
+		"neweb"
+	],
+	"main": "dist/index.js",
+	"types": "dist/types/src/index.d.ts",
+	"type": "module",
+	"files": [
+		"dist",
+		"package.json"
+	],
+	"scripts": {
+		"build": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+		"postbuild": "rimraf dist/types/rollup.config.d.ts && rimraf dist/types/rollup.config.d.ts.map",
+		"dev": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript --watch"
+	},
+	"devDependencies": {
+		"rimraf": "^5.0.1",
+		"rollup": "^3.28.1"
+	},
+	"dependencies": {
+		"tslib": "^2.6.2",
+		"@rollup/plugin-babel": "^6.0.3",
+		"@rollup/plugin-terser": "^0.4.3",
+		"@rollup/plugin-typescript": "^11.1.2",
+		"neweb-local-utils": "workspace:^0.1.0"
+	}
+}
