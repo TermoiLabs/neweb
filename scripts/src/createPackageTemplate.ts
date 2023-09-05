@@ -95,6 +95,7 @@ node_modules
 	writeFileSync(joinPath(packageDir, "tsconfig.json"), JSON.stringify(defaultTsConfig));
 	writeFileSync(joinPath(packageDir, "rollup.config.ts"), defaultRollupConfig.trim());
 	writeFileSync(joinPath(packageDir, ".gitignore"), defaultGitIgnore.trim());
+	writeFileSync(joinPath(packageDir, "src", "index.ts"), "");
 
 	execSync(
 		`cd ${packageDir} && pnpm i && npx prettier ./* ./**/* --write --cache --cache-strategy content --ignore-unknown`
