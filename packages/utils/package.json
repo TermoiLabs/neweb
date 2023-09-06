@@ -19,7 +19,8 @@
 	"devDependencies": {
 		"dev-utils": "workspace:^0.1.0",
 		"rimraf": "^5.0.1",
-		"rollup": "^3.28.1"
+		"rollup": "^3.28.1",
+		"rollup-plugin-preserve-directives": "^0.2.0"
 	},
 	"dependencies": {
 		"datauri": "^4.1.0",

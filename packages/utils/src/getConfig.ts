@@ -1,3 +1,6 @@
+"_$_NEWEB_WEBPACK_MAGIC_DIRECTIVE_$_";
+// DO NOT TOUCH THE DIRECTIVE ABOVE OR THE WEBPACK PLUGIN WILL BREAK
+
 import DataUriParser from "datauri/parser.js";
 import { existsSync, lstatSync, readFileSync } from "fs";
 import { extname, isAbsolute as isPathAbsolute } from "path";
@@ -15,15 +18,11 @@ const logger = new Logger();
 
 /** Identifies .ts, .cts, and .mts */
 const isTypeScriptFile = (path: string) => [".ts", ".cts", ".mts"].includes(extname(path));
-
 /**
  * Searches for a config file using Node.js APIs. If the environment is determined to be a browser,
  * returns the default configuration. This function should be compiled at build time to return the
  * configuration by using a bundler plugin. Alternatively, it can also be evaluated at runtime by using
  * the static `Configuration` class.
- *
- * DO NOT CHANGE THE NAME OF THIS FUNCTION, OR THE NAME AND LOCATION OF THE FILE, OTHERWISE ALL WEBPACK
- * PLUGINS WILL BREAK
  *
  * @param path Use this when neweb can't find the correct config file
  * @param logging Disables logging. Mostly used to avoid a stack overflow with the Logger class
