@@ -1,4 +1,4 @@
-import { NewebConfig } from "../types/index";
+import { NewebConfig } from "../../types/index";
 
 const config: NewebConfig = {
 	mode: "bleedingEdge",

@@ -5,13 +5,13 @@ import DataUriParser from "datauri/parser.js";
 import { existsSync, lstatSync, readFileSync } from "fs";
 import { extname, isAbsolute as isPathAbsolute } from "path";
 import ts from "typescript";
-import { findFileBottomUp } from ".";
+import { findFileBottomUp } from "../node";
 import Logger from "./Logger";
 import defaultNewebConfig from "./assets/defaultNewebConfig";
-import getModuleDir from "./node/getModuleDir";
-import rootDir from "./node/rootDir";
-import { NewebConfig } from "./types/index";
-import hybridImport from "./node/hybridImport";
+import getModuleDir from "../node/getModuleDir";
+import rootDir from "../node/rootDir";
+import { NewebConfig } from "../types/index";
+import hybridImport from "../node/hybridImport";
 
 const supportedFileNames = ["neweb.config.js", "neweb.config.ts", "neweb.config.json"] as const;
 const logger = new Logger();
