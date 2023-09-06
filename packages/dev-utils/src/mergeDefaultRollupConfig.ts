@@ -28,8 +28,7 @@ function mergeDefaultRollupConfig({ newConfig }: Parameters = {}) {
 		terser(),
 	];
 
-	const pluginsClone = structuredClone(newConfig?.plugins?.extra);
-	plugins = plugins.concat(pluginsClone || []);
+	plugins = plugins.concat(newConfig?.plugins?.extra || []);
 
 	const root = structuredClone(newConfig?.root);
 
