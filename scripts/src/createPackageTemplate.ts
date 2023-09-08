@@ -1,6 +1,6 @@
 import { execSync } from "child_process";
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmdirSync, writeFileSync } from "fs";
-import { findFileBottomUp } from "neweb-local-utils";
+import { findFileBottomUp } from "neweb-local-utils/node";
 import { join as joinPath } from "path";
 import { stdin as input, stdout as output } from "process";
 import { createInterface as createReadlineInterface } from "readline/promises";
@@ -40,13 +40,9 @@ const defaultTsConfig: TsConfigJson = {
 	exclude: ["dist"],
 };
 
-const defaultRollupConfig = `
-import { mergeDefaultRollupConfig } from "dev-utils";
-
-export default mergeDefaultRollupConfig({
+const defaultRollupConfig: { [key: string]: any } = {
 	newConfig: { plugins: { typescript: { tsconfig: "./tsconfig.json" } } },
-});
-`;
+};
 
 const defaultGitIgnore = `
 dist
@@ -75,6 +71,66 @@ node_modules
 	const rl = createReadlineInterface({ input, output });
 	const packageName = await rl.question("What will be the name of the package?\n");
 
+	const yesRegex = /y(es)?/i;
+
+	const multiEnv = yesRegex.test(
+		await rl.question("Will your package support multiple environments? (Y/N)\n")
+	);
+
+	// Determine environments
+	let environments: string[] = [];
+	if (multiEnv) {
+		environments = (
+			await rl.question(
+				"What are the environments? The first will be the default (hybrid,browser,node)"
+			)
+		).split(/,\s*/);
+		environments = environments.filter((env) => env !== "");
+
+		if (environments.length === 0) {
+			environments = ["hybrid", "browser", "node"];
+		}
+	}
+
+	// Multi-env package.json
+	if (multiEnv) {
+		delete defaultPackageJson.main;
+		delete defaultPackageJson.types;
+
+		const getEnvExport = (env: string) => ({
+			types: `./dist/types/src/${env}/index.d.ts`,
+			default: `./dist/${env}/index.js`,
+		});
+
+		defaultPackageJson.exports = {
+			".": getEnvExport(environments[0]),
+		};
+		const partialEnvironments = environments.slice(1);
+
+		for (const env of partialEnvironments) {
+			defaultPackageJson.exports[`./${env}`] = getEnvExport(env);
+		}
+	}
+
+	// Multi-env rollup config
+	if (multiEnv) {
+		defaultRollupConfig.newConfig.root = {
+			input: environments.map((env) => `./src/${env}/index.ts`),
+			output: {
+				dir: "dist",
+				format: "esm",
+				sourcemap: true,
+				preserveModules: true,
+			},
+		};
+	}
+
+	const defaultRollupConfigString = `
+import { mergeDefaultRollupConfig } from "dev-utils";
+
+export default mergeDefaultRollupConfig(${JSON.stringify(defaultRollupConfig)});
+`;
+
 	const packageDir = joinPath(manifestPath, "..", "packages", packageName);
 
 	if (existsSync(packageDir)) {
@@ -93,9 +149,17 @@ node_modules
 
 	writeFileSync(joinPath(packageDir, "package.json"), JSON.stringify(defaultPackageJson));
 	writeFileSync(joinPath(packageDir, "tsconfig.json"), JSON.stringify(defaultTsConfig));
-	writeFileSync(joinPath(packageDir, "rollup.config.ts"), defaultRollupConfig.trim());
+	writeFileSync(joinPath(packageDir, "rollup.config.ts"), defaultRollupConfigString.trim());
 	writeFileSync(joinPath(packageDir, ".gitignore"), defaultGitIgnore.trim());
-	writeFileSync(joinPath(packageDir, "src", "index.ts"), "");
+
+	if (!multiEnv) {
+		writeFileSync(joinPath(packageDir, "src", "index.ts"), "");
+	} else {
+		for (const env of environments) {
+			mkdirSync(joinPath(packageDir, "src", env));
+			writeFileSync(joinPath(packageDir, "src", env, "index.ts"), "", {});
+		}
+	}
 
 	execSync(
 		`cd ${packageDir} && pnpm i && npx prettier ./* ./**/* --write --cache --cache-strategy content --ignore-unknown`
