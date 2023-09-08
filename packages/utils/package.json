@@ -4,8 +4,23 @@
 	"private": true,
 	"author": "Lorenzo Bloedow",
 	"license": "MIT",
-	"main": "dist/index.js",
-	"types": "dist/types/src/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/types/src/hybrid/index.d.ts",
+			"default": "./dist/hybrid/index.js"
+		},
+		"./browser": {
+			"types": "./dist/types/src/browser/index.d.ts",
+			"default": "./dist/browser/index.js"
+		},
+		"./node": {
+			"types": "./dist/types/src/node/index.d.ts",
+			"default": "./dist/node/index.js"
+		},
+		"./types": {
+			"default": "./dist/types/src/types/index.d.ts"
+		}
+	},
 	"type": "module",
 	"files": [
 		"dist",

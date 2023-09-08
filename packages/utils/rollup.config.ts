@@ -5,6 +5,12 @@ export default mergeDefaultRollupConfig({
 	newConfig: {
 		plugins: { typescript: { tsconfig: "./tsconfig.json" }, extra: [preserveDirectives()] },
 		root: {
+			input: [
+				"./src/hybrid/index.ts",
+				"./src/browser/index.ts",
+				"./src/node/index.ts",
+				"./src/node/webpack/configLoader.ts",
+			],
 			output: {
 				dir: "dist",
 				format: "esm",
