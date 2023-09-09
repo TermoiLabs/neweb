@@ -1,0 +1,49 @@
+{
+	"name": "@neweb/react",
+	"version": "0.1.0",
+	"description": "Next-gen component library redefining user expectations",
+	"exports": {
+		".": {
+			"types": "./dist/types/src/hybrid/index.d.ts",
+			"default": "./dist/hybrid/index.js"
+		},
+		"./browser": {
+			"types": "./dist/types/src/browser/index.d.ts",
+			"default": "./dist/browser/index.js"
+		},
+		"./node": {
+			"types": "./dist/types/src/node/index.d.ts",
+			"default": "./dist/node/index.js"
+		}
+	},
+	"type": "module",
+	"scripts": {
+		"build": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+		"postbuild": "rimraf dist/types/rollup.config.d.ts && rimraf dist/types/rollup.config.d.ts.map",
+		"dev": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript --watch"
+	},
+	"keywords": [
+		"neweb",
+		"components",
+		"react"
+	],
+	"files": [
+		"dist",
+		"package.json"
+	],
+	"author": "Lorenzo Bloedow",
+	"license": "MIT",
+	"devDependencies": {
+		"@babel/preset-react": "^7.22.5",
+		"rimraf": "^5.0.1",
+		"rollup": "^3.28.1",
+		"dev-utils": "workspace:^0.1.0"
+	},
+	"dependencies": {
+		"tslib": "^2.6.2",
+		"neweb-local-utils": "workspace:^0.1.0"
+	},
+	"peerDependencies": {
+		"react": "^18.2.0"
+	}
+}
