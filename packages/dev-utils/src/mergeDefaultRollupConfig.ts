@@ -17,7 +17,7 @@ interface Parameters {
 function mergeDefaultRollupConfig({ newConfig }: Parameters = {}) {
 	let plugins = [
 		typescript({
-			include: ["src/**/*", "rollup.config.ts", "../../utils/**/*"],
+			include: ["src/**/*", "rollup.config.ts"],
 			...newConfig?.plugins?.typescript,
 		}),
 		babel({
