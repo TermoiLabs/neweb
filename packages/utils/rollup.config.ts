@@ -10,6 +10,7 @@ export default mergeDefaultRollupConfig({
 				"./src/browser/index.ts",
 				"./src/node/index.ts",
 				"./src/node/webpack/configLoader.ts",
+				"./src/types/index.ts",
 			],
 			output: {
 				dir: "dist",

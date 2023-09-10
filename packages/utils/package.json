@@ -6,19 +6,19 @@
 	"license": "MIT",
 	"exports": {
 		".": {
-			"types": "./dist/types/src/hybrid/index.d.ts",
+			"types": "./dist/types/hybrid/index.d.ts",
 			"default": "./dist/hybrid/index.js"
 		},
 		"./browser": {
-			"types": "./dist/types/src/browser/index.d.ts",
+			"types": "./dist/types/browser/index.d.ts",
 			"default": "./dist/browser/index.js"
 		},
 		"./node": {
-			"types": "./dist/types/src/node/index.d.ts",
+			"types": "./dist/types/node/index.d.ts",
 			"default": "./dist/node/index.js"
 		},
 		"./types": {
-			"default": "./dist/types/src/types/index.d.ts"
+			"default": "./dist/types/types/index.d.ts"
 		}
 	},
 	"type": "module",
@@ -27,15 +27,15 @@
 		"package.json"
 	],
 	"scripts": {
-		"build": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
-		"postbuild": "rimraf dist/types/rollup.config.d.ts && rimraf dist/types/rollup.config.d.ts.map",
-		"dev": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript --watch"
+		"build": "rimraf dist && rollup --config rollup.config.ts --configPlugin rollup-plugin-ts",
+		"dev": "rollup --config rollup.config.ts --configPlugin rollup-plugin-ts --watch"
 	},
 	"devDependencies": {
 		"dev-utils": "workspace:^0.1.0",
 		"rimraf": "^5.0.1",
 		"rollup": "^3.28.1",
-		"rollup-plugin-preserve-directives": "^0.2.0"
+		"rollup-plugin-preserve-directives": "^0.2.0",
+		"rollup-plugin-ts": "^3.4.5"
 	},
 	"dependencies": {
 		"datauri": "^4.1.0",

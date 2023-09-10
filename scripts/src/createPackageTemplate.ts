@@ -14,7 +14,7 @@ const defaultPackageJson: PackageJson = {
 	license: "MIT",
 	keywords: ["neweb"],
 	main: "dist/index.js",
-	types: "dist/types/src/index.d.ts",
+	types: "dist/types/index.d.ts",
 	type: "module",
 	files: ["dist", "package.json"],
 	scripts: {
@@ -121,7 +121,7 @@ test/build
 		delete defaultPackageJson.types;
 
 		const getEnvExport = (env: string) => ({
-			types: `./dist/types/src/${env}/index.d.ts`,
+			types: `./dist/types/${env}/index.d.ts`,
 			default: `./dist/${env}/index.js`,
 		});
 
