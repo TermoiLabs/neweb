@@ -2,4 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 pnpm find-version-mismatch
-pnpm prettier:ci:check
+pnpm prettier:fix
+git update-index --again
