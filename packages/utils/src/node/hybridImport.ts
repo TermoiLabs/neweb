@@ -11,7 +11,7 @@ const isFileUri = (path: string) => path.startsWith("file:");
  *
  * @param path Relative, file URI, or absolute path from either Windows or POSIX
  */
-async function hybridImport(path: string) {
+async function hybridImport(path: string): Promise<{ default: any }> {
 	return extname(path) === ".json"
 		? {
 				default: JSON.parse(readFileSync(isFileUri(path) ? fileURLToPath(path) : path, "utf-8")),
