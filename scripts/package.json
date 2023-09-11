@@ -7,9 +7,11 @@
 	"type": "module",
 	"dependencies": {
 		"neweb-local-utils": "workspace:^0.1.0",
+		"recursive-readdir": "^2.2.3",
 		"tslib": "^2.6.2"
 	},
 	"devDependencies": {
+		"@types/recursive-readdir": "^2.2.1",
 		"type-fest": "^4.3.1"
 	}
 }

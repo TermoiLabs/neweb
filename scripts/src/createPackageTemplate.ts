@@ -18,17 +18,39 @@ const defaultPackageJson: PackageJson = {
 	type: "module",
 	files: ["dist", "package.json"],
 	scripts: {
-		build: "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
-		postbuild: "rimraf dist/types/rollup.config.d.ts && rimraf dist/types/rollup.config.d.ts.map",
-		dev: "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript --watch",
+		build: "rimraf dist && rollup --config rollup.config.ts --configPlugin rollup-plugin-ts",
+		dev: "rollup --config rollup.config.ts --configPlugin rollup-plugin-ts --watch",
+		test: "ava test/build/test/unit/**/*.test.js test/build/test/integration/**/*.test.js",
+		"test:init": "pnpm build && pnpm test:build",
+		"test:build":
+			"rimraf test/build && tsc --project ./test/tsconfig.json && ts-node ../../scripts/src/mapTsAlias.ts ./test/tsconfig.json",
+		"test:ci": "pnpm test --fail-fast",
 	},
 	devDependencies: {
 		rimraf: "^5.0.1",
 		rollup: "^3.28.1",
 		"dev-utils": "workspace:^0.1.0",
+		"rollup-plugin-ts": "^3.4.5",
+		ava: "^5.3.1",
+		"@ava/typescript": "^4.1.0",
+		"tsc-alias": "^1.8.7",
 	},
 	dependencies: {
 		tslib: "^2.6.2",
+	},
+};
+
+const defaultTsConfigTest: TsConfigJson = {
+	extends: "../../../tsconfig.json",
+	compilerOptions: {
+		rootDir: "../",
+		outDir: "./build",
+		declaration: false,
+		declarationMap: false,
+		moduleResolution: "NodeNext",
+		paths: {
+			"@dist/*": ["../dist/*"],
+		},
 	},
 };
 
@@ -47,6 +69,7 @@ const defaultRollupConfig: { [key: string]: any } = {
 const defaultGitIgnore = `
 dist
 node_modules
+test/build
 `;
 
 (async () => {
@@ -146,9 +169,12 @@ export default mergeDefaultRollupConfig(${JSON.stringify(defaultRollupConfig)});
 	mkdirSync(joinPath(packageDir, "dist"));
 	mkdirSync(joinPath(packageDir, "src"));
 	mkdirSync(joinPath(packageDir, "test"));
+	mkdirSync(joinPath(packageDir, "test", "unit"));
+	mkdirSync(joinPath(packageDir, "test", "integration"));
 
 	writeFileSync(joinPath(packageDir, "package.json"), JSON.stringify(defaultPackageJson));
 	writeFileSync(joinPath(packageDir, "tsconfig.json"), JSON.stringify(defaultTsConfig));
+	writeFileSync(joinPath(packageDir, "test", "tsconfig.json"), JSON.stringify(defaultTsConfigTest));
 	writeFileSync(joinPath(packageDir, "rollup.config.ts"), defaultRollupConfigString.trim());
 	writeFileSync(joinPath(packageDir, ".gitignore"), defaultGitIgnore.trim());
 
