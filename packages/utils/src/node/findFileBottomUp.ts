@@ -17,8 +17,10 @@ function findFileBottomUp<S extends boolean | undefined>(
 	}
 
 	const pathsFound = [];
-	for (let i = 0; i < currentDirSections.length; i++) {
+	const startingDirSectionAmount = currentDirSections.length;
+	for (let i = 0; i < startingDirSectionAmount; i++) {
 		const currentPath = joinPath(currentDirSections.join(sep), fileName);
+
 		if (existsSync(currentPath)) {
 			if (!findAll) {
 				return currentPath as FinalResult<S>;
