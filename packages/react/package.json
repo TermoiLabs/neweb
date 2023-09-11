@@ -4,15 +4,12 @@
 	"description": "Next-gen component library redefining user expectations",
 	"exports": {
 		".": {
-			"types": "./dist/types/hybrid/index.d.ts",
 			"default": "./dist/hybrid/index.js"
 		},
 		"./browser": {
-			"types": "./dist/types/browser/index.d.ts",
 			"default": "./dist/browser/index.js"
 		},
 		"./node": {
-			"types": "./dist/types/node/index.d.ts",
 			"default": "./dist/node/index.js"
 		}
 	},

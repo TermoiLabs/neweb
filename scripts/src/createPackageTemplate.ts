@@ -14,7 +14,7 @@ const defaultPackageJson: PackageJson = {
 	license: "MIT",
 	keywords: ["neweb"],
 	main: "dist/index.js",
-	types: "dist/types/index.d.ts",
+	types: "dist/index.d.ts",
 	type: "module",
 	files: ["dist", "package.json"],
 	scripts: {
@@ -56,9 +56,6 @@ const defaultTsConfigTest: TsConfigJson = {
 
 const defaultTsConfig: TsConfigJson = {
 	extends: "../../tsconfig.json",
-	compilerOptions: {
-		declarationDir: "dist/types",
-	},
 	exclude: ["dist"],
 };
 
@@ -121,7 +118,6 @@ test/build
 		delete defaultPackageJson.types;
 
 		const getEnvExport = (env: string) => ({
-			types: `./dist/types/${env}/index.d.ts`,
 			default: `./dist/${env}/index.js`,
 		});
 

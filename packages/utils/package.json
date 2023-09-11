@@ -6,19 +6,16 @@
 	"license": "MIT",
 	"exports": {
 		".": {
-			"types": "./dist/types/hybrid/index.d.ts",
 			"default": "./dist/hybrid/index.js"
 		},
 		"./browser": {
-			"types": "./dist/types/browser/index.d.ts",
 			"default": "./dist/browser/index.js"
 		},
 		"./node": {
-			"types": "./dist/types/node/index.d.ts",
 			"default": "./dist/node/index.js"
 		},
 		"./types": {
-			"default": "./dist/types/types/index.d.ts"
+			"default": "./dist/types/index.d.ts"
 		}
 	},
 	"type": "module",

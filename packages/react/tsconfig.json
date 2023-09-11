@@ -1,7 +1,4 @@
 {
 	"extends": "../../tsconfig.json",
-	"compilerOptions": {
-		"declarationDir": "dist/types"
-	},
 	"exclude": ["dist"]
 }
