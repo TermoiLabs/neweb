@@ -92,7 +92,7 @@ async function getConfig(path?: string | null, logging = true): Promise<NewebCon
 						)?.default || {};
 				} catch (err) {
 					if (logging) {
-						logger.warn(
+						await logger.warn(
 							`Failed to load config file based on the following path explicitly given: ${configPath}`
 						);
 					}
@@ -102,7 +102,7 @@ async function getConfig(path?: string | null, logging = true): Promise<NewebCon
 	}
 
 	if (logging && Object.keys(configFile).length < 1) {
-		logger.info("No configuration file resolved, using default values");
+		await logger.info("No configuration file resolved, using default values");
 	}
 
 	return {
