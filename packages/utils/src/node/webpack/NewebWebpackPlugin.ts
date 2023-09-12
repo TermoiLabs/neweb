@@ -1,14 +1,16 @@
 import type { Compiler, WebpackPluginInstance } from "webpack";
-import getConfig from "../../hybrid/getConfig";
-import { WebpackPluginUserConfig } from "../../types";
+import { NewebConfig, WebpackPluginUserConfig } from "../../types";
 import { readFileSync } from "fs";
 import { resolve as resolvePath } from "path";
 import getModuleDir from "../getModuleDir";
 
+type GetConfig = (path?: string, logging?: boolean) => Promise<NewebConfig>;
+
 async function compileConfigFile(
 	compiler: Compiler,
 	packageName: string,
-	config: WebpackPluginUserConfig | undefined
+	config: WebpackPluginUserConfig | undefined,
+	getConfig: GetConfig
 ) {
 	const resolvedConfig = await getConfig(config?.configPath);
 	compiler.hooks.compilation.tap(packageName, (compilation) => {
@@ -54,21 +56,27 @@ type NormalModuleLoader = {
 class NewebWebpackPlugin implements WebpackPluginInstance {
 	#pluginName = "neweb-webpack-plugin";
 	#packageName;
+	#getConfig;
 	userConfig?: WebpackPluginUserConfig;
 
-	constructor(packageName: `@neweb/${string}`, userConfig?: WebpackPluginUserConfig) {
+	constructor(
+		packageName: `@neweb/${string}`,
+		getConfig: GetConfig,
+		userConfig?: WebpackPluginUserConfig
+	) {
 		this.#packageName = packageName;
+		this.#getConfig = getConfig;
 		this.userConfig = userConfig;
 	}
 
 	apply: WebpackPluginInstance["apply"] = function apply(this: NewebWebpackPlugin, compiler) {
 		compiler.hooks.beforeRun.tapAsync(this.#pluginName, async (compiler, callback) => {
-			await compileConfigFile(compiler, this.#packageName, this.userConfig);
+			await compileConfigFile(compiler, this.#packageName, this.userConfig, this.#getConfig);
 			callback();
 		});
 
 		compiler.hooks.watchRun.tapAsync(this.#pluginName, async (compiler, callback) => {
-			await compileConfigFile(compiler, this.#packageName, this.userConfig);
+			await compileConfigFile(compiler, this.#packageName, this.userConfig, this.#getConfig);
 			callback();
 		});
 	};
