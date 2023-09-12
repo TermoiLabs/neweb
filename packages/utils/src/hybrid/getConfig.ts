@@ -14,7 +14,6 @@ import { NewebConfig } from "../types/index";
 import hybridImport from "../node/hybridImport";
 
 const supportedFileNames = ["neweb.config.js", "neweb.config.ts", "neweb.config.json"] as const;
-const logger = new Logger();
 
 /** Identifies .ts, .cts, and .mts */
 const isTypeScriptFile = (path: string) => [".ts", ".cts", ".mts"].includes(extname(path));
@@ -28,6 +27,7 @@ const isTypeScriptFile = (path: string) => [".ts", ".cts", ".mts"].includes(extn
  * @param logging Disables logging. Mostly used to avoid a stack overflow with the Logger class
  */
 async function getConfig(path?: string | null, logging = true): Promise<NewebConfig> {
+	const logger = new Logger();
 	let configFile: Partial<NewebConfig> = {};
 
 	/**
