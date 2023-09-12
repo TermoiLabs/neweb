@@ -22,7 +22,10 @@ async function compileConfigFile(
 				const modulePath = userRequest.substring(startIndex).split("?")[0];
 				if (modulePath) {
 					const moduleContent = readFileSync(modulePath, "utf-8");
-					if (moduleContent.startsWith("'_$_NEWEB_WEBPACK_MAGIC_DIRECTIVE_$_'")) {
+					if (
+						moduleContent.startsWith("'_$_NEWEB_WEBPACK_MAGIC_DIRECTIVE_$_'") ||
+						moduleContent.startsWith('"_$_NEWEB_WEBPACK_MAGIC_DIRECTIVE_$_"')
+					) {
 						(loaders as NormalModuleLoader[]).push({
 							loader: resolvePath(getModuleDir(import.meta.url), "configLoader.js"),
 							options: {
