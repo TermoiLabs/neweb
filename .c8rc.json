@@ -1,0 +1,10 @@
+{
+	"include": ["packages/**/dist"],
+	"exclude": ["packages/**/dist/**/assets"],
+	"report-dir": "./coverage",
+	"lines": 90,
+	"functions": 100,
+	"branches": 90,
+	"statements": 90,
+	"check-coverage": true
+}
