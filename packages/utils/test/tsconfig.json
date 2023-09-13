@@ -1,0 +1,15 @@
+{
+	"extends": "../../../tsconfig.json",
+	"compilerOptions": {
+		"rootDir": "../",
+		"outDir": "./build",
+		"declaration": false,
+		"declarationMap": false,
+		"moduleResolution": "NodeNext",
+		"checkJs": false,
+		"paths": {
+			"@dist/*": ["../dist/*"]
+		},
+		"module": "ES2022"
+	}
+}
