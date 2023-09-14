@@ -18,3 +18,23 @@ export type WebpackPluginUserConfig = {
 };
 
 export type LooseObject = { [key: string | number | symbol]: any };
+
+export type NewebElement<StyleFormat> = {
+	id?: string;
+	className?: string;
+	styles?: string | StyleFormat;
+	mergeStyles?: boolean;
+	tabindex?: number;
+};
+
+export type ElementTree<StyleFormat> = {
+	[key: string]: NewebElement<StyleFormat>;
+};
+
+export interface BaseComponentProps<ET> {
+	id?: string;
+	elementTree?: {
+		elements?: ET;
+		markers?: boolean;
+	};
+}
