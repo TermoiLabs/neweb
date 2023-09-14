@@ -16,3 +16,5 @@ export type WebpackPluginUserConfig = {
 	 */
 	configPath?: string;
 };
+
+export type LooseObject = { [key: string | number | symbol]: any };
