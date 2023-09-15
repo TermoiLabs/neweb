@@ -4,6 +4,7 @@ export interface NewebConfig {
 	mode: NewebMode;
 	prod: boolean;
 	logLevel: "debug" | "info" | "warn" | "none" | false;
+	turnOnElementTreeMarkersByDefault: boolean;
 }
 
 export type NewebConfigFile = Partial<NewebConfig>;
