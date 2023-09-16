@@ -11,12 +11,19 @@
 		},
 		"./node": {
 			"default": "./dist/node/index.js"
+		},
+		"./styles": {
+			"default": "./dist/browser/styles.css"
 		}
 	},
 	"type": "module",
 	"scripts": {
-		"build": "rimraf dist && rollup --config rollup.config.ts --configPlugin rollup-plugin-ts",
-		"dev": "rollup --config rollup.config.ts --configPlugin rollup-plugin-ts --watch"
+		"build:rollup": "rimraf dist && rollup --config rollup.config.ts --configPlugin rollup-plugin-ts",
+		"build:tailwind": "npx tailwindcss -i ./src/styles/globals.css -o ./dist/browser/styles.css",
+		"build": "concurrently \"pnpm build:rollup\" \"pnpm build:tailwind\"",
+		"dev:rollup": "rollup --config rollup.config.ts --configPlugin rollup-plugin-ts --watch",
+		"dev:tailwind": "npx tailwindcss -i ./src/styles/globals.css -o ./dist/browser/styles.css --watch",
+		"dev": "concurrently \"pnpm dev:rollup\" \"pnpm dev:tailwind\""
 	},
 	"keywords": [
 		"neweb",
@@ -32,17 +39,26 @@
 	"devDependencies": {
 		"@babel/preset-react": "^7.22.5",
 		"@types/react": "^18.2.20",
+		"concurrently": "^8.2.1",
 		"dev-utils": "workspace:^0.1.0",
 		"rimraf": "^5.0.1",
 		"rollup": "^3.28.1",
 		"rollup-plugin-preserve-directives": "^0.2.0",
-		"rollup-plugin-ts": "^3.4.5"
+		"rollup-plugin-ts": "^3.4.5",
+		"tailwindcss": "^3.3.3"
 	},
 	"dependencies": {
 		"neweb-local-utils": "workspace:^0.1.0",
+		"tailwind-merge": "^1.14.0",
 		"tslib": "^2.6.2"
 	},
 	"peerDependencies": {
-		"react": "^18.2.0"
+		"react": "^18.2.0",
+		"tailwindcss": "^3.3.3"
+	},
+	"peerDependenciesMeta": {
+		"tailwindcss": {
+			"optional": true
+		}
 	}
 }
