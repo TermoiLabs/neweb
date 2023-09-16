@@ -31,6 +31,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@babel/preset-react": "^7.22.5",
+		"@types/react": "^18.2.20",
 		"dev-utils": "workspace:^0.1.0",
 		"rimraf": "^5.0.1",
 		"rollup": "^3.28.1",
