@@ -64,7 +64,7 @@ importers:
   examples/next13/react-and-webpack-plugin:
     dependencies:
       '@neweb/react':
-        specifier: workspace:*
+        specifier: '*'
         version: link:../../../packages/react
       '@types/node':
         specifier: ^20.5.6
@@ -97,7 +97,7 @@ importers:
         specifier: ^0.4.3
         version: 0.4.3(rollup@3.28.1)
       neweb-local-utils:
-        specifier: workspace:^0.1.0
+        specifier: ^0.1.0
         version: link:../utils
       rollup-plugin-ts:
         specifier: ^3.4.5
@@ -116,7 +116,7 @@ importers:
   packages/react:
     dependencies:
       neweb-local-utils:
-        specifier: workspace:^0.1.0
+        specifier: ^0.1.0
         version: link:../utils
       react:
         specifier: ^18.2.0
@@ -138,7 +138,7 @@ importers:
         specifier: ^8.2.1
         version: 8.2.1
       dev-utils:
-        specifier: workspace:^0.1.0
+        specifier: ^0.1.0
         version: link:../dev-utils
       rimraf:
         specifier: ^5.0.1
@@ -181,7 +181,7 @@ importers:
         specifier: ^5.3.1
         version: 5.3.1
       dev-utils:
-        specifier: workspace:^0.1.0
+        specifier: ^0.1.0
         version: link:../dev-utils
       mock-fs:
         specifier: ^5.2.0
@@ -211,7 +211,7 @@ importers:
   scripts:
     dependencies:
       neweb-local-utils:
-        specifier: workspace:^0.1.0
+        specifier: ^0.1.0
         version: link:../packages/utils
       recursive-readdir:
         specifier: ^2.2.3

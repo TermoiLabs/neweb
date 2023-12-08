@@ -29,7 +29,7 @@ const defaultPackageJson: PackageJson = {
 	devDependencies: {
 		rimraf: "^5.0.1",
 		rollup: "^3.28.1",
-		"dev-utils": "workspace:^0.1.0",
+		"dev-utils": "^0.1.0",
 		"rollup-plugin-ts": "^3.4.5",
 		ava: "^5.3.1",
 		"@ava/typescript": "^4.1.0",

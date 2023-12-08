@@ -35,7 +35,7 @@
 		"@types/mock-fs": "^4.13.1",
 		"@types/sinon": "^10.0.16",
 		"ava": "^5.3.1",
-		"dev-utils": "workspace:^0.1.0",
+		"dev-utils": "^0.1.0",
 		"mock-fs": "^5.2.0",
 		"rimraf": "^5.0.1",
 		"rollup": "^3.28.1",
