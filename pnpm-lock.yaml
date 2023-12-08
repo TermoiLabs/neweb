@@ -63,7 +63,7 @@ importers:
 
   examples/next13/react-and-webpack-plugin:
     dependencies:
-      '@neweb/react':
+      '@termoi/neweb-react':
         specifier: '*'
         version: link:../../../packages/react
       '@types/node':
@@ -96,7 +96,7 @@ importers:
       '@rollup/plugin-terser':
         specifier: ^0.4.3
         version: 0.4.3(rollup@3.28.1)
-      neweb-local-utils:
+      '@termoi/neweb-local-utils':
         specifier: ^0.1.0
         version: link:../utils
       rollup-plugin-ts:
@@ -115,7 +115,7 @@ importers:
 
   packages/react:
     dependencies:
-      neweb-local-utils:
+      '@termoi/neweb-local-utils':
         specifier: ^0.1.0
         version: link:../utils
       react:
@@ -131,15 +131,15 @@ importers:
       '@babel/preset-react':
         specifier: ^7.22.5
         version: 7.22.5(@babel/core@7.22.10)
+      '@termoi/neweb-dev-utils':
+        specifier: ^0.1.0
+        version: link:../dev-utils
       '@types/react':
         specifier: ^18.2.20
         version: 18.2.20
       concurrently:
         specifier: ^8.2.1
         version: 8.2.1
-      dev-utils:
-        specifier: ^0.1.0
-        version: link:../dev-utils
       rimraf:
         specifier: ^5.0.1
         version: 5.0.1
@@ -171,6 +171,9 @@ importers:
         specifier: ^5.1.6
         version: 5.1.6
     devDependencies:
+      '@termoi/neweb-dev-utils':
+        specifier: ^0.1.0
+        version: link:../dev-utils
       '@types/mock-fs':
         specifier: ^4.13.1
         version: 4.13.1
@@ -180,9 +183,6 @@ importers:
       ava:
         specifier: ^5.3.1
         version: 5.3.1
-      dev-utils:
-        specifier: ^0.1.0
-        version: link:../dev-utils
       mock-fs:
         specifier: ^5.2.0
         version: 5.2.0
@@ -210,7 +210,7 @@ importers:
 
   scripts:
     dependencies:
-      neweb-local-utils:
+      '@termoi/neweb-local-utils':
         specifier: ^0.1.0
         version: link:../packages/utils
       recursive-readdir:

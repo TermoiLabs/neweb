@@ -1,10 +1,10 @@
-import { getConfig } from "neweb-local-utils";
-import { NewebWebpackPlugin } from "neweb-local-utils/node";
-import { WebpackPluginUserConfig } from "neweb-local-utils/types";
+import { getConfig } from "@termoi/neweb-local-utils";
+import { NewebWebpackPlugin } from "@termoi/neweb-local-utils/node";
+import { WebpackPluginUserConfig } from "@termoi/neweb-local-utils/types";
 
 class NewebReactWebpackPlugin extends NewebWebpackPlugin {
 	constructor(userConfig?: WebpackPluginUserConfig) {
-		super("@neweb/react", getConfig, userConfig);
+		super("@termoi/neweb-react", getConfig, userConfig);
 	}
 }
 

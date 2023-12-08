@@ -1,4 +1,4 @@
-import { NewebConfigFile } from "@neweb/react/node";
+import { NewebConfigFile } from "@termoi/neweb-react/node";
 
 const config: NewebConfigFile = {
 	mode: "performance",

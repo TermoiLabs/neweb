@@ -1,4 +1,4 @@
-import { mergeDefaultRollupConfig } from "dev-utils";
+import { mergeDefaultRollupConfig } from "@termoi/neweb-dev-utils";
 import preserveDirectives from "rollup-plugin-preserve-directives";
 
 export default mergeDefaultRollupConfig({

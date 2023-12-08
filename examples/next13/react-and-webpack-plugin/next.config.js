@@ -1,4 +1,4 @@
-import { NewebReactWebpackPlugin } from "@neweb/react/node";
+import { NewebReactWebpackPlugin } from "@termoi/neweb-react/node";
 import { fileURLToPath } from "url";
 
 /** @type {import("next").NextConfig} */

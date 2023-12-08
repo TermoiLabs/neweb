@@ -1,5 +1,5 @@
 {
-	"name": "dev-utils",
+	"name": "@termoi/neweb-dev-utils",
 	"description": "utilities that won't be bundled in production code",
 	"version": "0.1.0",
 	"private": true,
@@ -26,7 +26,7 @@
 	"dependencies": {
 		"@rollup/plugin-babel": "^6.0.3",
 		"@rollup/plugin-terser": "^0.4.3",
-		"neweb-local-utils": "^0.1.0",
+		"@termoi/neweb-local-utils": "^0.1.0",
 		"rollup-plugin-ts": "^3.4.5",
 		"tslib": "^2.6.2"
 	}

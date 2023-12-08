@@ -1,6 +1,6 @@
 import { execSync } from "child_process";
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmdirSync, writeFileSync } from "fs";
-import { findFileBottomUp } from "neweb-local-utils/node";
+import { findFileBottomUp } from "@termoi/neweb-local-utils/node";
 import { join as joinPath } from "path";
 import { stdin as input, stdout as output } from "process";
 import { createInterface as createReadlineInterface } from "readline/promises";
@@ -29,7 +29,7 @@ const defaultPackageJson: PackageJson = {
 	devDependencies: {
 		rimraf: "^5.0.1",
 		rollup: "^3.28.1",
-		"dev-utils": "^0.1.0",
+		"@termoi/neweb-dev-utils": "^0.1.0",
 		"rollup-plugin-ts": "^3.4.5",
 		ava: "^5.3.1",
 		"@ava/typescript": "^4.1.0",
@@ -145,7 +145,7 @@ test/build
 	}
 
 	const defaultRollupConfigString = `
-import { mergeDefaultRollupConfig } from "dev-utils";
+import { mergeDefaultRollupConfig } from "@termoi/neweb-dev-utils";
 
 export default mergeDefaultRollupConfig(${JSON.stringify(defaultRollupConfig)});
 `;

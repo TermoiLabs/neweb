@@ -1,2 +1,2 @@
 export { default as NewebReactWebpackPlugin } from "./NewebReactWebpackPlugin";
-export { NewebConfigFile } from "neweb-local-utils/types";
+export { NewebConfigFile } from "@termoi/neweb-local-utils/types";

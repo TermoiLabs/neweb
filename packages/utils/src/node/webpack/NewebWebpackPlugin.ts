@@ -60,7 +60,7 @@ class NewebWebpackPlugin implements WebpackPluginInstance {
 	userConfig?: WebpackPluginUserConfig;
 
 	constructor(
-		packageName: `@neweb/${string}`,
+		packageName: `@termoi/neweb-${string}`,
 		getConfig: GetConfig,
 		userConfig?: WebpackPluginUserConfig
 	) {

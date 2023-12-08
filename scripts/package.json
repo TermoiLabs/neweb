@@ -1,12 +1,12 @@
 {
-	"name": "neweb-local-scripts",
+	"name": "@termoi/neweb-local-scripts",
 	"version": "0.1.0",
 	"private": true,
 	"author": "Lorenzo Bloedow",
 	"license": "MIT",
 	"type": "module",
 	"dependencies": {
-		"neweb-local-utils": "^0.1.0",
+		"@termoi/neweb-local-utils": "^0.1.0",
 		"recursive-readdir": "^2.2.3",
 		"tslib": "^2.6.2"
 	},
