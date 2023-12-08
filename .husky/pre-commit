@@ -3,4 +3,5 @@
 
 pnpm find-version-mismatch
 pnpm prettier:fix
+pnpm install --frozen-lockfile
 git update-index --again
