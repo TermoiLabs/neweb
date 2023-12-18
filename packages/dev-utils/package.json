@@ -2,7 +2,6 @@
 	"name": "@termoi/neweb-dev-utils",
 	"description": "utilities that won't be bundled in production code",
 	"version": "0.1.0",
-	"private": true,
 	"author": "Lorenzo Bloedow",
 	"license": "MIT",
 	"keywords": [

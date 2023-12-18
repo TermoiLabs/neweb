@@ -32,6 +32,7 @@
 		"test:ci": "pnpm test --fail-fast"
 	},
 	"devDependencies": {
+		"@termoi/neweb-api-types": "^0.4.0",
 		"@types/mock-fs": "^4.13.1",
 		"@types/sinon": "^10.0.16",
 		"ava": "^5.3.1",
@@ -47,6 +48,8 @@
 	},
 	"dependencies": {
 		"datauri": "^4.1.0",
+		"detect-browser": "^5.3.0",
+		"dot-prop": "^8.0.2",
 		"terser": "^5.19.4",
 		"tslib": "^2.6.2",
 		"typescript": "^5.1.6"
