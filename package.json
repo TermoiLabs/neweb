@@ -8,7 +8,7 @@
 		"coverage:check": "c8 pnpm test",
 		"build": "pnpm -r --filter=\"./packages/**\" run build",
 		"dev": "cross-env NODE_OPTIONS=--max-old-space-size=8192 pnpm -r --parallel --filter='./packages/**' run dev",
-		"prettier:fix": "npx prettier ./* ./**/* --write --cache --cache-strategy content --ignore-unknown",
+		"prettier:fix": "npx prettier ./* ./scripts/**/* ./packages/**/* ./examples/**/* --write --cache --cache-strategy content --ignore-unknown",
 		"prettier:ci:check": "npx prettier ./* ./**/* --list-different --cache --cache-strategy content --ignore-unknown",
 		"find-version-mismatch": "syncpack list-mismatches",
 		"find-version-mismatch:ci": "syncpack lint",
