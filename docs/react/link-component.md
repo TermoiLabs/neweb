@@ -3,6 +3,10 @@
 ## Usage
 
 ```
+npm i @termoi/neweb-react
+```
+
+```
 import { Link } from "@termoi/neweb-react";
 
 export default function Home() {
